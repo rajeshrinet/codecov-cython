@@ -8,3 +8,8 @@ cimport numpy as np
 cpdef multiply(A, B):
     return A*B
 
+@cython.boundscheck(False)
+@cython.wraparound(False)
+cpdef divide(A, B):
+    return A/B
+
