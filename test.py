@@ -1,6 +1,7 @@
-import matMul
-import numpy as np
 import unittest
+import numpy as np
+import matMul
+
 
 class  ExTest(unittest.TestCase):
     def test_multiply(self):
@@ -17,7 +18,7 @@ class  ExTest(unittest.TestCase):
         
         diff = A/B - matMul.divide(A, B)
         self.assertTrue((np.asarray(diff) < 0.001).all(),
-                           "Multiplication is not correct")
+                           "Division is not correct")
 
 if __name__ == '__main__':
     unittest.main()
