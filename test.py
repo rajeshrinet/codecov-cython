@@ -15,7 +15,7 @@ class  ExTest(unittest.TestCase):
         A = np.array((1, 2, 300, 400, 400))
         B = np.array((1, 2, 3, 4, 5))
         
-        diff = A*B - matMul.multiply(A, B)
+        diff = A/B - matMul.divide(A, B)
         self.assertTrue((np.asarray(diff) < 0.001).all(),
                            "Multiplication is not correct")
 
