@@ -1,0 +1,28 @@
+name: codecov
+
+on: [push, pull_request]
+
+
+jobs:
+
+  build-and-test:
+    name: Codecov Workflow 
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+    
+      - name: Setup Miniconda
+        uses: goanpeca/setup-miniconda@v1.2.0
+        with:
+         activate-environment: testCov
+         environment-file: environment.yml
+      - name: make-test-cov
+        shell: bash -l {0}
+        run: |
+          conda activate testCov 
+          make
+          make cycov 
+      - uses: codecov/codecov-action@v1.0.2
+        with:
+          token: ${{secrets.CODECOV_TOKEN}} 

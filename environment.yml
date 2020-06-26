@@ -1,0 +1,9 @@
+name: testCov
+channels:
+  - conda-forge
+dependencies:
+  - python
+  - numpy
+  - cython
+  - pytest 
+  - pytest-cov
